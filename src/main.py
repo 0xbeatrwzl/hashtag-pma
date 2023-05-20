@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'hello world'
+    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 
 if __name__ == '__main__':
