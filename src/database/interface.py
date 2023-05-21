@@ -14,7 +14,7 @@ class Database:
         values = []
         for column, value in kwargs.items():
             columns.append(column)
-            values.append(values)
+            values.append(value)
 
         query = f'INSERT INTO {table} ({columns}) VALUES ({values});'
 
