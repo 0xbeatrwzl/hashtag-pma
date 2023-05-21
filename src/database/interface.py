@@ -18,8 +18,8 @@ class Database:
 
         columns = str(columns).replace("'", "")
         query = f'INSERT INTO {table} ({columns}) VALUES ({values});'.replace('[', '').replace(']', '')
-        print(query)
-        #self.cursor.execute(query)
+
+        self.cursor.execute(query)
 
         return 0
 
