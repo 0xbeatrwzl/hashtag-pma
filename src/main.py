@@ -9,7 +9,7 @@ from database.interface import Database
 
 # APP CONFIG
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='static')
 db = Database()
 
 
@@ -52,7 +52,7 @@ def webhook():
         data['status'] = 'RB'
 
     db.insert_data(
-        table='webhooks',
+        table='webhook',
         nome=data['nome'],
         email=data['email'],
         status_pagamento=data['status'],
