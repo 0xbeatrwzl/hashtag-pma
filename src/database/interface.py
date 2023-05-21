@@ -16,9 +16,9 @@ class Database:
             columns.append(column)
             values.append(value)
 
-        query = f'INSERT INTO {table} ({columns}) VALUES ({values});'
-        print(query)
-        # self.cursor.execute(query)
+        query = f'INSERT INTO {table} ({columns}) VALUES ({values});'.replace('[', '').replace(']', '')
+
+        self.cursor.execute(query)
 
     def load_data(self, table):
         query = f'SELECT * FROM {table};'
