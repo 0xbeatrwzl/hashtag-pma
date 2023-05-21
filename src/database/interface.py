@@ -17,8 +17,8 @@ class Database:
             values.append(value)
 
         query = f'INSERT INTO {table} ({columns}) VALUES ({values});'
-
-        self.cursor.execute(query)
+        print(query)
+        # self.cursor.execute(query)
 
     def load_data(self, table):
         query = f'SELECT * FROM {table};'
