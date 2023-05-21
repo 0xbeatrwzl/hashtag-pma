@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 
-print(os.environ['READONLY_ACCOUNT_REGISTER_TOKEN'])
+print(os.environ['DATABASE_URL'])
 
 
 @app.route('/webhook', methods=['POST'])
