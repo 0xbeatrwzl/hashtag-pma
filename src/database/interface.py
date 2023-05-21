@@ -20,6 +20,8 @@ class Database:
 
         self.cursor.execute(query)
 
+        return 0
+
     def load_data(self, table):
         query = f'SELECT * FROM {table};'
         response = self.cursor.execute(query)
