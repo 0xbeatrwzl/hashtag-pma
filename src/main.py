@@ -1,11 +1,22 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
 
 
-print(os.environ['DATABASE_URL'])
+# VARIABLES
 
+DATABASE_URL = os.environ['DATABASE_URL']
+
+
+# APP CONFIG
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+
+db = SQLAlchemy(app)
+
+# ROUTES
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
