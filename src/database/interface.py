@@ -1,13 +1,13 @@
 # IMPORTS
 
-from connector import connector
+from connector import Connector
 
 
 # INTERFACE CLASS
 
 class Database:
     def __init__(self):
-        self.cursor = connector.cursor()
+        self.cursor = Connector.cursor()
 
     def insert_data(self, table, **kwargs):
         columns = []
