@@ -80,6 +80,13 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/payments')
+def payments():
+    webhooks = db.load_data('webhook')
+    tratives = db.load_data('system_tratatives')
+
+    return render_template('payments.html')
+
 # RUN
 
 if __name__ == '__main__':
