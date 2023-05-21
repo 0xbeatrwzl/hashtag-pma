@@ -21,7 +21,7 @@ class Database:
 
         self.cursor.execute(query)
 
-        return 0
+        Connector.commit()
 
     def load_data(self, table):
         query = f'SELECT * FROM {table};'
