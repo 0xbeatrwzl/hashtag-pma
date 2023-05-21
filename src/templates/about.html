@@ -1,0 +1,40 @@
+{% extends 'blocks/base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="../static/css/about.css">
+{% endblock %}
+
+{% block content %}
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <img src="imgs/hashtag-logo.png" alt="logo" class="img-fluid" width="50" height="50">
+      <a class="navbar-brand text-light" href="index.html">Hashtag PMA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="about.html">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="payments.html">Pagamentos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="profile.html">Perfil</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="mt-5 pt-5"></div>
+  <h3 class="h1 container text-center mt-1 mb-3">Sobre</h3>
+  <p class="container">A Hashtag Payments Manager API (PMA) é uma ferramenta para registrar e monitorar os pagamentos recebidos dos clientes Hashtag e as decisões tomadas pelo sistema.</p>
+
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script.js"></script>
+{% endblock %}
