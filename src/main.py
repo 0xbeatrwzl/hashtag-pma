@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/webhook')
 def webhook():
     print(request.data)
-    return ''
+    return 'Webhook received! Thank you.'
 
 
 @app.route('/')
