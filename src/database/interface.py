@@ -16,7 +16,7 @@ class Database:
             columns.append(column)
             values.append(value)
 
-        query = f'INSERT INTO {table} ({columns}) VALUES ({values});'.replace('[', '').replace(']', '')
+        query = f'INSERT INTO {table} ({columns}) VALUES {values};'.replace('[', '').replace(']', '')
 
         self.cursor.execute(query)
 
