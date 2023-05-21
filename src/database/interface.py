@@ -16,8 +16,7 @@ class Database:
             columns.append(column)
             values.append(values)
 
-        query = (f'INSERT INTO {table} ({columns})'
-                 f'VALUES ({values})')
+        query = f'INSERT INTO {table} ({columns}) VALUES ({values});'
 
         self.cursor.execute(query)
 
