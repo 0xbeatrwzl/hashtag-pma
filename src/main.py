@@ -9,7 +9,7 @@ from database.interface import Database
 
 # APP CONFIG
 
-app = Flask(__name__, static_url_path='static')
+app = Flask(__name__)
 db = Database()
 
 
