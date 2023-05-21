@@ -19,7 +19,7 @@ def webhook():
     received_data = str(request.data).replace('b\'', '').replace('\'', '')
     data = ast.literal_eval(received_data)
 
-    data['valor'] = int(data['valor'])
+    data['valor'] = float(data['valor'])
 
     if data['status'] == 'aprovado':
         data['status'] = 'AP'
