@@ -1,8 +1,8 @@
+# IMPORTS
+
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
-
-app = Flask(__name__)
 
 
 # VARIABLES
@@ -12,9 +12,17 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 # APP CONFIG
 
+app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
-db = SQLAlchemy(app)
+
+# DATABASE CONFIG
+
+database = SQLAlchemy()
+
+database.init_app(app)
+
 
 # ROUTES
 
