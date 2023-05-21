@@ -4,6 +4,9 @@ import os
 app = Flask(__name__)
 
 
+print(os.environ['READONLY_ACCOUNT_REGISTER_TOKEN'])
+
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     print(request.data)
@@ -11,7 +14,7 @@ def webhook():
 
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
 
