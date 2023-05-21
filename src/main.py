@@ -1,22 +1,39 @@
 # IMPORTS
 
 import os
+import ast
 
 from flask import Flask, render_template, request
-from database.connector import connector
+from database.interface import Database
 
 # APP CONFIG
 
 app = Flask(__name__)
-
-print(connector.cursor().execute('SELECT * FROM webhooks'))
+db = Database()
 
 
 # ROUTES
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    print(request.data)
+    received_data = str(request.data).replace('b\'', '').replace('\'', '')
+    data = ast.literal_eval(received_data)
+
+    if data['status'] == 'aprovado':
+        data['status'] = 'AP'
+    elif data['status'] == 'reprovado':
+        data['status'] = 'RP'
+    else:
+        data['status'] = 'RB'
+
+    Database.insert_data(
+        table='webhooks',
+        nome=data['nome'],
+        email=data['email'],
+        status_pagamento=data['status'],
+        metodo_pagamento=data['forma_pagamento'],
+        valor=data['valor']
+    )
 
     return 'Webhook received! Thank you.'
 
