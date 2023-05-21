@@ -20,6 +20,7 @@ def webhook():
     data = ast.literal_eval(received_data)
 
     data['valor'] = float(data['valor'])
+    data['forma_pagamento'] = 'TESTE'
 
     if data['status'] == 'aprovado':
         data['status'] = 'AP'
