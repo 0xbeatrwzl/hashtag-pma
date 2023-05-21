@@ -16,6 +16,7 @@ class Database:
             columns.append(column)
             values.append(value)
 
+        columns = str(columns).replace("'", "")
         query = f'INSERT INTO {table} ({columns}) VALUES ({values});'.replace('[', '').replace(']', '')
         print(query)
         #self.cursor.execute(query)
