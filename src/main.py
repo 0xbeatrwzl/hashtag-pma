@@ -26,7 +26,7 @@ def webhook():
     else:
         data['status'] = 'RB'
 
-    Database.insert_data(
+    db.insert_data(
         table='webhooks',
         nome=data['nome'],
         email=data['email'],
