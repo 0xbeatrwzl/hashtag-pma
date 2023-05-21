@@ -1,34 +1,15 @@
 # IMPORTS
 
 import os
-import pymysql
 
 from flask import Flask, render_template, request
-
-
-# VARIABLES
-
-MYSQL_DATABASE = os.environ['MYSQL_DATABASE']
-MYSQL_HOST = os.environ['MYSQL_HOST']
-MYSQL_USER = os.environ['MYSQL_USER']
-MYSQL_PASSWORD = os.environ['MYSQL_PASSWORD']
-MYSQL_PORT = os.environ['MYSQL_PORT']
-
+from database.connector import connector
 
 # APP CONFIG
 
 app = Flask(__name__)
 
-
-# DATABASE CONFIG
-
-connector = pymysql.connect(
-    host=MYSQL_HOST,
-    port=int(MYSQL_PORT),
-    user=MYSQL_USER,
-    passwd=MYSQL_PASSWORD,
-    database=MYSQL_DATABASE
-)
+print(connector.cursor().execute('SELECT * FROM webhooks'))
 
 
 # ROUTES
