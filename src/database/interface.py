@@ -1,6 +1,6 @@
 # IMPORTS
 
-from connector import Connector
+from database.connector import Connector
 
 
 # INTERFACE CLASS
