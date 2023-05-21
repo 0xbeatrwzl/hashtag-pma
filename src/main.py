@@ -17,21 +17,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 
 
-# DATABASE CONFIG
-
-database = SQLAlchemy()
-
-database.init_app(app)
-
-
-class Test(database.Model):
-    id = database.Column(database.Integer, primary_key=True)
-
-
-with app.app_context():
-    database.create_all()
-
-
 # ROUTES
 
 @app.route('/webhook', methods=['POST'])
