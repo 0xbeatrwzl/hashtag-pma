@@ -6,6 +6,7 @@ import ast
 from flask import Flask, render_template, request
 from database.interface import Database
 
+
 # APP CONFIG
 
 app = Flask(__name__)
@@ -72,6 +73,11 @@ def webhook():
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 # RUN
