@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
-    print(request)
+    print(request.data)
     return 'Webhook received! Thank you.'
 
 
