@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     print(request.values)
+    return None
 
 
 @app.route('/')
