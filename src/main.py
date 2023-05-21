@@ -1,19 +1,32 @@
 # IMPORTS
 
-from flask import Flask, render_template, request
 import os
+import pymysql
+
+from flask import Flask, render_template, request
 
 
 # VARIABLES
 
-DATABASE_URL = os.environ['DATABASE_URL']
+MYSQL_DATABASE = os.environ['MYSQL_DATABASE']
+MYSQL_HOST = os.environ['MYSQL_HOST']
+MYSQL_USER = os.environ['MYSQL_USER']
+MYSQL_PASSWORD = os.environ['MYSQL_PASSWORD']
 
 
 # APP CONFIG
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+
+# DATABASE CONFIG
+
+connector = pymysql.connect(
+    host=MYSQL_HOST,
+    user=MYSQL_USER,
+    passwd=MYSQL_PASSWORD,
+    database=MYSQL_DATABASE
+)
 
 
 # ROUTES
@@ -21,6 +34,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 @app.route('/webhook', methods=['POST'])
 def webhook():
     print(request.data)
+
     return 'Webhook received! Thank you.'
 
 
@@ -28,6 +42,8 @@ def webhook():
 def home():
     return render_template('index.html')
 
+
+# RUN
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
